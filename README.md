@@ -1,24 +1,37 @@
-Simple Todo List
-A simple Todo List app built with React.
+# Simple Todo List
 
-Features
-Add new tasks to the list
-Mark tasks as completed
-Delete tasks from the list
-Random fact-based task name suggestions
-Responsive Navbar
-Technologies
-React
-CSS
-Installation
-To run the project locally, follow these steps:
+A simple todo list application built with React.
 
-Clone the repository: git clone https://github.com/your-username/todo-list.git
-Navigate to the project directory: cd todo-list
-Install the dependencies: npm install
-Run the app: npm start
-Usage
-Type the task you want to add in the input field and press "Enter" or click the "New Task" button. Tasks can be marked as completed by clicking the "Done!" button or deleted by clicking the "Delete!" button.
+## Table of Contents
 
-License
-This project is licensed under the MIT License.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- Add new tasks
+- Delete tasks
+- Mark tasks as completed
+- Random fact generator for task input placeholder
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/eduzsantillan/todo`
+2. Change directory to the project folder: `cd YOUR-REPOSITORY`
+3. Install dependencies: `npm install`
+
+## Usage
+
+1. Start the development server: `npm start`
+2. Open [http://localhost:3000](http://localhost:3000) in a web browser
+
+## Contributing
+
+Contributions are welcome! just send me a message @eduzsantilllan
+
+## License
+
+Copyright © [2023] [Eduardo Zuñiga]
