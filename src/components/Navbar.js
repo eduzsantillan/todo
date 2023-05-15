@@ -3,8 +3,9 @@ import facts from "../data/Facts";
 
 function Navbar(props) {
   const [taskName, setTaskName] = useState("");
-  const [placeholder, setPlaceholder] = useState("Add your task");
-  const [example, setExample] = useState("Do laundry");
+  const [placeholder, setPlaceholder] = useState(
+    "Add your task, for example : 'Buy milk'"
+  );
 
   const updatePlaceHolder = () => {
     const randomNumber = Math.floor(Math.random() * 20) + 1;
