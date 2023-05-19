@@ -1,103 +1,229 @@
 body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
   font-family: "Roboto", sans-serif;
-  font-size: large;
-  margin: 0%;
-  background-color: #22252e;
 }
 
-input[type="text"] {
-  font-size: 40px;
-}
-
-button {
-  font-size: 30px;
-}
-
-.my-task-container {
-  margin: 20px;
-  background-color: white;
-  background: linear-gradient(to bottom right, #ffffff, #e6e6e6);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.task {
-  color: #22252e;
-  background-color: white;
-  border: 0;
-  display: flex; /* add a flex container */
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.task h1 {
-  margin-left: 2%;
-  font-size: large;
-}
-
-.navbar {
-  background-color: #22252e;
-  height: 180px;
-}
-
-.formTask {
-  margin-left: 2%;
-  margin-right: 2%;
+.main-container {
+  box-sizing: border-box;
+  height: 100vh;
   display: flex;
-  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.copyrigth {
+  display: flex;
+  justify-content: flex-start;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+  font-size: 0.5rem;
+}
+
+.headline {
+  font-size: 1rem;
+  z-index: 1;
+  border: 1px solid black;
+  padding: 2%;
+  position: relative;
+  top: 50px;
+  background-color: #efefef;
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.app-container {
+  border: 1px solid black;
+  padding-top: 10%;
+  padding-left: 2%;
+  padding-right: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  height: 100vh;
+  margin-bottom: 1%;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.form-task {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
   justify-content: space-between;
 }
+.form-task input {
+  width: 60%;
+  border: 0px;
+  box-sizing: border-box;
+}
 
-.input-task {
-  margin-top: 5%;
-  color: aliceblue;
-  flex-grow: 2;
-  background: #22252e;
-  border: 0;
-}
-.input-task::placeholder {
-  font-size: medium;
-  color: aliceblue;
-  opacity: 0.5;
-  font-style: italic;
-}
-.input-task:focus {
+.form-task input:focus {
   outline: none;
 }
 
-.new-task-button {
-  background-color: white;
-  color: #22252e;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-left: auto;
-  margin-top: 5%;
-  height: 50px;
-  font-size: small;
-  font-weight: bold;
+.form-task input::placeholder {
+  opacity: 0.5;
+  font-style: italic;
 }
 
-.task-button-container {
+.form-task button {
+  padding: 2%;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.task-list {
+  padding-top: 10%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
-  border: none;
-  margin-left: auto;
-  margin-right: 2%;
+  flex-direction: column;
 }
 
-.task-button-container button {
-  background-color: #22252e;
-  color: aliceblue;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-right: 5%;
-  font-size: small;
-  font-weight: bold;
+.single-task {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-bottom: 0.5%;
+}
+
+.task-name {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.3em;
+  font-size: 1.05em;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.4em;
+  height: 1.4em;
+  border: 1px solid #aaa;
+  background: #fff;
+  border-radius: 0.2em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 rgba(101, 104, 104, 0.2);
+  -webkit-transition: all 0.275s;
+  transition: all 0.275s;
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: "✓";
+  position: absolute;
+  top: 0.525em;
+  left: 0.18em;
+  font-size: 1.375em;
+  color: #656868;
+  line-height: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0) rotate(45deg);
+  transform: scale(0) rotate(45deg);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+  transform: scale(1) rotate(0);
+}
+
+/* Disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #e9e9e9;
+}
+
+[type="checkbox"]:disabled:checked + label:after {
+  color: #777;
+}
+
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+
+/* Accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1),
+    0 0 0 6px rgba(101, 104, 104, 0.2);
+}
+
+@media (max-width: 400px) {
+  /* CSS rules for smaller window sizes */
+  .headline {
+    top: 50px;
+  }
+}
+
+@media (max-width: 800px) {
+  .form-task button {
+    display: none;
+  }
+  .form-task {
+    margin-top: 3%;
+  }
+  .copyrigth {
+    left: 35%;
+  }
+}
+
+@media (max-width: 600px) {
+  /* CSS rules for smaller window sizes */
+  .headline {
+    font-size: 0.5rem;
+    top: 25px;
+    width: auto;
+    height: auto;
+  }
+  .form-task {
+    margin-top: 5%;
+  }
+  .form-task input {
+    font-size: 0.8rem;
+  }
+  .form-task button {
+    display: none;
+  }
+  .task-list {
+    font-size: 0.8rem;
+  }
+  .copyrigth {
+    left: 20%;
+  }
 }

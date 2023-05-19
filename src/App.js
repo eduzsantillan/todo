@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import Input from "./components/Input";
 import Task from "./components/Task";
+import Headline from "./components/Headline";
 
 function App() {
   const [listTask, setListTask] = useState([]);
@@ -13,6 +14,7 @@ function App() {
     });
     setListTask(orderedList);
   }, [listTask]);
+
   const addTask = (newTask) => {
     if (!newTask) {
       return;
@@ -40,7 +42,7 @@ function App() {
   const completeTask = (idTask) => {
     const filteredList = listTask.map((task) => {
       if (task.id === idTask) {
-        return { ...task, completed: true };
+        return { ...task, completed: !task.completed };
       } else {
         return task;
       }
@@ -52,8 +54,33 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Navbar functionAdd={addTask}></Navbar>
+    <div className="main-container">
+      <span className="copyrigth">
+        Designed and developed by{" "}
+        <a href="https://eduzsantillan-dev.vercel.app/" target="_blank">
+          Eduardo Zuniga
+        </a>
+      </span>
+      <Headline title="TODO LIST"></Headline>
+
+      <div className="app-container">
+        <Input functionAdd={addTask}></Input>
+        <div className="task-list">
+          {listTask.map((task, key) => {
+            return (
+              <Task
+                task={task}
+                functionDelete={deleteTask}
+                id={key}
+                functionCompleted={completeTask}
+              ></Task>
+            );
+          })}
+        </div>
+      </div>
+
+      {/*    <Navbar functionAdd={addTask}></Navbar>
+
 
       <div className="my-task-container">
         {listTask.map((task, key) => {
@@ -66,7 +93,7 @@ function App() {
             ></Task>
           );
         })}
-      </div>
+      </div> */}
     </div>
   );
 }
